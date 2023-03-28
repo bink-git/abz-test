@@ -1,0 +1,26 @@
+.card {
+  width: 370px;
+  height: 254px;
+  background-color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  text-align: center;
+  border-radius: 10px;
+
+  &-img {
+    border-radius: 50%;
+  }
+
+  &-info p,
+  &-name {
+    width: 330px;
+    line-height: 26px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
