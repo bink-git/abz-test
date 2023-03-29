@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import axios, { formToJSON } from 'axios';
+import axios from 'axios';
 import './Form.scss';
 import Button from '../Button/Button';
 
@@ -11,7 +11,6 @@ const Form = () => {
   const [photo, setPhoto] = useState(null);
   const [posId, setPosId] = useState(0);
 
-  //---------------------------------------------------
   const handleSubmit = async (event) => {
     event.preventDefault();
     let formData = new FormData();

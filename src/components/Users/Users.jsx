@@ -26,7 +26,7 @@ const Users = () => {
     };
 
     fetchUsers();
-  }, [page]);
+  }, [page, users]);
 
   const nextPage = () => setPage((prevPage) => ++prevPage);
 
