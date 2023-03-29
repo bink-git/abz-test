@@ -8,70 +8,51 @@ import Button from '../Button/Button';
 
 const Users = () => {
   const [users, setUsers] = useState([]);
-  // let api =
-  //   'https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=6';
-
-  // useEffect(() => {
-  //   axios.get(api).then((res) => {
-  //     setUsers(res.data.users);
-  //   });
-  // }, [api]);
-
-  // console.log(users);
-
-  // useEffect(() => {
-  //   fetch(
-  //     'https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=6'
-  //   )
-  //     .then(function (response) {
-  //       return response.json();
-  //     })
-  //     .then(function (data) {
-  //       console.log(data);
-  //       if (data.success) {
-  //         console.log('succ');
-  //       } else {
-  //         ('proccess server errors');
-  //       }
-  //     });
-  // }, []);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         const response = await axios.get(
-          `https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=26`
+          `https://frontend-test-assignment-api.abz.agency/api/v1/users?page=${page}&count=6`
         );
-        setUsers(response.data.users);
+        const data = response.data;
+        setTotalPages(data.total_pages);
+        setUsers(data.users);
       } catch (error) {
         console.error(error);
       }
     };
 
     fetchUsers();
-  }, []);
+  }, [page]);
 
-  console.log(users);
+  const nextPage = () => setPage((prevPage) => ++prevPage);
 
   return (
     <div className="users">
       <h2 className="users-title">Working with GET request</h2>
       <div className="users-cards">
         {users &&
-          users.map((user) => {
-            return (
-              <UserCard
-                name={user.name}
-                email={user.email}
-                photo={user.photo}
-                position={user.position}
-                phone={user.phone}
-                key={user.id}
-              />
-            );
-          })}
+          users
+            .sort((a, b) => b.registration_timestamp - a.registration_timestamp)
+            .map((user) => {
+              return (
+                <UserCard
+                  name={user.name}
+                  email={user.email}
+                  photo={user.photo}
+                  position={user.position}
+                  phone={user.phone}
+                  key={user.id}
+                />
+              );
+            })}
       </div>
-      <Button title="Show more" />
+      {page <= totalPages - 1 && (
+        <Button title="Show more" onClick={() => nextPage()} />
+      )}
     </div>
   );
 };

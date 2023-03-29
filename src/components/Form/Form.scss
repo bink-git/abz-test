@@ -1,0 +1,115 @@
+.form-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .form {
+    max-width: 380px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+
+    &-inputs {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+    }
+
+    &-input {
+      position: relative;
+
+      input {
+        width: 380px;
+        height: 54px;
+        background-color: #f8f8f8;
+        border: 1px solid #d0cfcf;
+        border-radius: 4px;
+        font-size: 16px;
+        padding: 14px 16px;
+        font-family: 'Nunito', sans-serif;
+        outline: none;
+      }
+
+      label {
+        position: absolute;
+        left: 15px;
+        top: -8px;
+        color: #7e7e7e;
+        font-size: 12px;
+        background-color: #f8f8f8;
+        transition: all 1s ease-in;
+        display: none;
+        padding: 0 5px;
+      }
+
+      input:focus + label {
+        display: inline-block;
+      }
+
+      span {
+        display: block;
+        font-size: 12px;
+        margin-top: 4px;
+        margin-left: 20px;
+        color: #7e7e7e;
+      }
+    }
+
+    &-position {
+      align-self: flex-start;
+
+      fieldset {
+        border: none;
+
+        legend {
+          margin-bottom: 10px;
+        }
+
+        .radio-container {
+          display: flex;
+          align-items: center;
+          margin-bottom: 10px;
+        }
+
+        .radio-container input {
+          display: none;
+        }
+
+        /* Define the custom radio button */
+        .radio-container .checkmark {
+          display: inline-block;
+          position: relative;
+          width: 20px;
+          height: 20px;
+          border: 1px solid #ccc;
+          border-radius: 50%;
+          margin-right: 10px;
+        }
+
+        /* Change the appearance of the custom radio button when selected */
+        .radio-container input:checked + .checkmark {
+          border: 1px solid #00bdd3;
+        }
+
+        .radio-container input:checked + .checkmark:before {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: #00bdd3;
+        }
+      }
+    }
+  }
+}

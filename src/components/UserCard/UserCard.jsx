@@ -8,7 +8,9 @@ const UserCard = ({ name, email, photo, position, phone }) => {
       <p className="card-name">{name}</p>
       <div className="card-info">
         <p>{position}</p>
-        <p>{email}</p>
+        <p className="card-email" title={email}>
+          {email}
+        </p>
         <p>{phone}</p>
       </div>
     </div>
