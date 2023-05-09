@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <div className="header">
       <div className="header-content">
-        <img src="./Logo.svg" alt="logo" />
+        <img src="./Logo.svg" alt="logo" width="104" height="26" />
 
         <div className="header-buttons">
           <HashLink to="#users" smooth>
