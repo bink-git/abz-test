@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../Button/Button';
+import { HashLink } from 'react-router-hash-link';
 import './Hero.scss';
 
 const Hero = () => {
@@ -14,7 +15,10 @@ const Hero = () => {
           mind. They should also be excited to learn, as the world of Front-End
           Development keeps evolving.
         </p>
-        <Button title="Sign up" />
+
+        <HashLink to="#form" smooth>
+          <Button title="Sign up" />
+        </HashLink>
       </div>
     </div>
   );

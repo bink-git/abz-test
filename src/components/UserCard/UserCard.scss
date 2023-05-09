@@ -23,4 +23,12 @@
     white-space: nowrap;
     text-overflow: ellipsis;
   }
+  &-name,
+  &-email {
+    cursor: pointer;
+  }
+}
+
+.MuiTooltip-tooltip {
+  background-color: #fff;
 }

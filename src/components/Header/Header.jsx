@@ -1,6 +1,8 @@
 import React from 'react';
 import Button from '../Button/Button';
 import './Header.scss';
+import Users from '../Users/Users';
+import { HashLink } from 'react-router-hash-link';
 
 const Header = () => {
   return (
@@ -9,8 +11,12 @@ const Header = () => {
         <img src="./Logo.svg" alt="logo" />
 
         <div className="header-buttons">
-          <Button title="Users" />
-          <Button title="Sign up" />
+          <HashLink to="#users" smooth>
+            <Button title="Users" />
+          </HashLink>
+          <HashLink to="#form" smooth>
+            <Button title="Sign up" />
+          </HashLink>
         </div>
       </div>
     </div>
