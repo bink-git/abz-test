@@ -19,7 +19,7 @@ const DarkTooltip = styled(({ className, ...props }) => (
 const UserCard = ({ name, email, photo, position, phone }) => {
   return (
     <div className="card">
-      <img className="card-img" src={photo || avatar} />
+      <img className="card-img" src={photo || avatar} alt="user photo" />
       <DarkTooltip title={name}>
         <p className="card-name">{name}</p>
       </DarkTooltip>

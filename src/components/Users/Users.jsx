@@ -14,7 +14,7 @@ const Users = () => {
   const [totalPages, setTotalPages] = useState(0);
 
   const { isSuccess } = useContext(CustomContext);
-  console.log(isSuccess);
+  // console.log(isSuccess);
 
   useEffect(() => {
     const fetchUsers = async () => {
