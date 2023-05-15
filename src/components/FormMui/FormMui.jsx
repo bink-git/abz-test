@@ -87,6 +87,7 @@ const FormMui = () => {
               }}
             >
               <form
+                id="form"
                 onSubmit={methods.handleSubmit(onSubmit)}
                 style={{
                   maxWidth: '380px',
