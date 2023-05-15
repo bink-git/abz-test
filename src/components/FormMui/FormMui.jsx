@@ -62,9 +62,16 @@ const FormMui = () => {
         return response.json();
       })
       .then((dataObj) => {
-        return dataObj.success ? setIsSuccess(true) : setIsSuccess(false);
+        return dataObj.success;
       })
       .catch((error) => console.log(error));
+
+    setIsSuccess(true);
+
+    setTimeout(() => {
+      methods.reset();
+      setIsSuccess(false);
+    }, 2000);
   };
 
   return (

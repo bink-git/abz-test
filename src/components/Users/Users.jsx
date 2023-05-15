@@ -14,7 +14,6 @@ const Users = () => {
   const [totalPages, setTotalPages] = useState(0);
 
   const { isSuccess } = useContext(CustomContext);
-  // console.log(isSuccess);
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -25,7 +24,7 @@ const Users = () => {
         const data = response.data;
         setTotalPages(data.total_pages);
         setUsers(data.users);
-        isSuccess ? setPage(1) : page;
+        isSuccess ? setPage(1) : null;
       } catch (error) {
         console.error(error);
       }
@@ -34,7 +33,9 @@ const Users = () => {
     fetchUsers();
   }, [page, isSuccess]);
 
-  const nextPage = () => setPage((prevPage) => ++prevPage);
+  const nextPage = () => {
+    setPage((prevPage) => ++prevPage);
+  };
 
   return (
     <div className="users" id="users">
