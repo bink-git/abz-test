@@ -4,10 +4,13 @@ export const CustomContext = createContext();
 
 const Context = (props) => {
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
   const value = {
     isSuccess,
     setIsSuccess,
+    isActive,
+    setIsActive,
   };
 
   return (

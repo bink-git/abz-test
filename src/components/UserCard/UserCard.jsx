@@ -3,6 +3,7 @@ import { styled } from '@mui/material/styles';
 import './UserCard.scss';
 import avatar from '/avatar.svg';
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
+import { Avatar } from '@mui/material/';
 
 const DarkTooltip = styled(({ className, ...props }) => (
   <Tooltip {...props} classes={{ popper: className }} />
@@ -19,12 +20,11 @@ const DarkTooltip = styled(({ className, ...props }) => (
 const UserCard = ({ name, email, photo, position, phone }) => {
   return (
     <div className="card">
-      <img
+      <Avatar
         className="card-img"
         src={photo || avatar}
         alt="user photo"
-        width="70"
-        height="70"
+        sx={{ width: 70, height: 70 }}
       />
       <DarkTooltip title={name}>
         <p className="card-name">{name}</p>
